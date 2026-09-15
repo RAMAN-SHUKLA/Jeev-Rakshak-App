@@ -17,7 +17,7 @@ export async function POST(req) {
     }
 
     try {
-      const model = genAI.getGenerativeModel({ model: 'gemini-flash-latest' });
+      const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
       const prompt = `You are a strict veterinary AI assistant with zero tolerance for errors.
 
