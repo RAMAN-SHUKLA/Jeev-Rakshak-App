@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 
-export default function BlogPost({ params }) {
+export default async function BlogPost({ params }) {
+  // In Next.js 15+, params is a Promise and must be awaited before accessing properties
+  const { slug } = await params;
   // In a real app, you would fetch the blog post data based on the slug from a database
-  const title = params.slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  const title = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
 
   return (
     <div style={{ padding: '4rem 0', backgroundColor: '#ffffff', minHeight: '80vh' }}>
